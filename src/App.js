@@ -24,11 +24,10 @@
 
 // export default App;
 
+import Body from "./components/Body";
 
 export default function App() {
   return (
-    <h1 className="text-3xl font-bold underline bg-black text-white">
-      Namaste Everyone , Let's build Streamify-GPT
-    </h1>
+   <Body/>
   )
 }
