@@ -3,6 +3,7 @@ import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import { auth } from "../utils/firebase";
+
 const Login = () => {
     const [isSignInForm,setIsSignInForm] = useState(true);
 
@@ -19,7 +20,6 @@ const Login = () => {
 
       if (message) return;  
      // if this is valid then can do sign in / sign up
-
      // Sign In Sign Up Form
 
      if(!isSignInForm){

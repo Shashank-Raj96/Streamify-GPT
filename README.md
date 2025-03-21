@@ -11,6 +11,8 @@
 - Firebase Setup
 - Deploying our App to production
 - Create SignUo user Account
+- Implement Sign In userAPI 
+- Created our Redux Store with userSlice
 
 
 # Featured 
