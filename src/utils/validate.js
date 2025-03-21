@@ -6,5 +6,5 @@
     if (!isEmailValid) return "Email is not Valid";
     if (!isPasswordValid) return "Password is not Valid";
 
-    return "Valid";
+    return null;
 };

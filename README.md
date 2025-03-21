@@ -7,7 +7,10 @@
 - Login Form
 - Sign up
 - Form Validation
-- useRef
+- useRef Hook 
+- Firebase Setup
+- Deploying our App to production
+- Create SignUo user Account
 
 
 # Featured 

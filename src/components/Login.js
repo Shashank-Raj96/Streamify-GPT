@@ -1,6 +1,7 @@
 import { useState , useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+//import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 const Login = () => {
     const [isSignInForm,setIsSignInForm] = useState(true);
@@ -16,7 +17,17 @@ const Login = () => {
       const message = checkValidData(email.current.value, password.current.value , name.current.value);
      setErrorMessage (message);
 
+      if (message) return;  
      // if this is valid then can do sign in / sign up
+
+     // Sign In Sign Up Form
+
+     if(!isSignInForm){
+          // Sign Up Logic
+     }
+     else {
+          // Sign In Logic
+     }
     };
 
 
