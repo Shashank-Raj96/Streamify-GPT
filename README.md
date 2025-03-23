@@ -13,6 +13,9 @@
 - Create SignUo user Account
 - Implement Sign In userAPI 
 - Created our Redux Store with userSlice
+- Implemented Sign Out
+- Update Prpfile
+- Fetch movie TMDB 
 
 
 # Featured 
