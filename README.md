@@ -16,6 +16,10 @@
 - Implemented Sign Out
 - Update Prpfile
 - Fetch movie TMDB 
+- Bug Fix : Sign Up user displayName and profile picture update 
+- BugFix : if the user is not logged in Redirect / browse o login page and vice- versa
+- Unscribe to the onAuthStateChange callback 
+- Add hardcoded values to the constant file 
 
 
 # Featured 
@@ -25,7 +29,7 @@
 
 - Browser (after authentication )
    - Header
-  - Main movie 
+   - Main movie 
      - Trailer in background 
      - Title & Description 
      - MovieSuggestion
