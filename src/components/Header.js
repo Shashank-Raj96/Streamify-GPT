@@ -5,6 +5,7 @@ import { useDispatch , useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { addUser , removeUser } from '../utils/userSlice';
 import { LOGO } from '../utils/constants';
+
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ const Header = () => {
 
         return () => unsubscribe();
 
-       }, []);
+       }, [dispatch, navigate]);// Here i have add dispatch and navigate in the dependence
 
 
     return (
