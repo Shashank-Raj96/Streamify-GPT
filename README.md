@@ -37,6 +37,18 @@
 - Made the browse page amazing with Tailwind CSS
 - usePopularMovies custom Hooks
 - Building GPT search feature
+- Gpt search Page 
+- Gpt search Bar
+- Multi-language Feature in our App (Bonus Feature)
+- get OPEN AI KEY
+- GPT search Open PI key 
+- Fetch movie suggestion from TMDB
+- gptSlice and added the data there 
+- Reused MovieList component to make Movie Suggestion to make Movie Container 
+- Memoization 
+- Added.env file to .gitignore
+
+
 
 
 

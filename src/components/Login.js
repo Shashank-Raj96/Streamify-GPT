@@ -29,14 +29,13 @@ const Login = () => {
 
      if(!isSignInForm){
           // Sign Up Logic
-
-          createUserWithEmailAndPassword(auth, email.current.value , password.current.value
-          )
+          createUserWithEmailAndPassword(auth, email.current.value , password.current.value)
+          
             .then((userCredential) => {
               // Signed in
               const user = userCredential.user;
               updateProfile(user, {
-                displayName: "name.current.value", 
+                displayName: name.current.value, 
                 photoURL: USER_AVATAR
               })
               .then(() => {
@@ -87,17 +86,18 @@ const Login = () => {
         setIsSignInForm(!isSignInForm);
     };
    
-    return (
-        
-  <div>
+    return (      
+      <div>
 
-     <Header/>
+       <Header/>
         <div className="absolute">
-         <img src={BG_URL}
+         <img className="h-screen object-cover md:h-full"  src={BG_URL}
           alt="logo" />
         </div>
 
-      <form  onSubmit = {(e) => e.preventDefault()} className=" w-3/12 absolute p-6 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
+      <form 
+       onSubmit = {(e) => e.preventDefault()} 
+         className="w-full md:w-3/12 absolute p-6 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80">
 
         <h1 className="font-bold text-3xl py-4">
             {isSignInForm ? "Sign In" : "Sign Up"}

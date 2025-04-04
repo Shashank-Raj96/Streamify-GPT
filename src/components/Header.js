@@ -1,38 +1,40 @@
-import { onAuthStateChanged, signOut } from '@firebase/auth';
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase"
 import { useNavigate } from "react-router";
 import { useDispatch , useSelector } from "react-redux";
-import { useEffect } from 'react';
-import { addUser , removeUser } from '../utils/userSlice';
-import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
+import { useEffect} from "react";
+import { addUser , removeUser } from "../utils/userSlice";
+import { LOGO, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
-import { changeLanguage } from '../utils/configSlice';
+import { changeLanguage } from "../utils/configSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const user = useSelector(store => store.user);
   const showGptSearch = useSelector ((store) => store.gpt.showGptSearch)
+
+ 
   const handleSignOut = () => {
         signOut(auth)
         .then(() => {})
-            // Sign-out successful.
-
+            // Sign-out successful
+            
          .catch((error) => {
             // An error happened.
             navigate("/error");
           });  
     };
 
-    useEffect(() => {
-       const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
+     useEffect(() => {
+        onAuthStateChanged(auth, (user) => {   
+         if (user) {
           const {uid , email , displayName , photoURL} = user;
            dispatch(
            addUser({
-              uid: uid ,
+              uid: uid,
                email: email,
-                displayName: displayName ,
+                displayName: displayName,
                  photoURL: photoURL,
                 })
             );  
@@ -41,13 +43,15 @@ const Header = () => {
             // User is signed out
             dispatch(removeUser());
            navigate("/");   // Here i have removed "/" from the navigate , so if we reload the page it will redirect to y browse page ig i am login in
-
           } 
+         
         });  
-
-        return () => unsubscribe();
-
        }, []);// Here i have add dispatch and navigate in the dependence
+
+
+       
+
+
 
      const handleGptSearchClick = () => {
          // Toggle GPT Search
@@ -58,16 +62,16 @@ const Header = () => {
      const handleLanguageChange = (e) => {
       dispatch(changeLanguage(e.target.value));
      }
-
+    
     return (
-        <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+        <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
         <img
-        className="w-24" 
+        className="w-24 mx-auto md:mx-0" 
         src = {LOGO}
         alt="logo" />
 
        { user && (
-         <div className="flex p-2">
+         <div className="flex p-2 justify-between">
            { showGptSearch && (
             <select
            className="p-2 bg-gray-500 text-white m-2" 
@@ -87,7 +91,7 @@ const Header = () => {
              >
               {showGptSearch? "Homepage":"GPT Search"} 
               </button>
-           <img className="w-8 h-9 "
+           <img className=" hidden md:block w-8 h-9 "
            alt = "userIcon" 
            src={user?.photoURL}
            />

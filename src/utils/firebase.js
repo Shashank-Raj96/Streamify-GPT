@@ -14,10 +14,11 @@ const firebaseConfig = {
   storageBucket: "stramify-gpt.firebasestorage.app",
   messagingSenderId: "940381150054",
   appId: "1:940381150054:web:c544903a74a0fa27f246a7",
-  measurementId: "G-Z7XY7WEYKG"
+  measurementId: "G-Z7XY7WEYKG",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
+
  export const auth = getAuth();
